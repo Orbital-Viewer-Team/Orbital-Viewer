@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	//float verticalRotation = 0.0f;
 	//Vector3 speed = Vector3.zero;
-	CharacterController cc;
+	public CharacterController cc;
 	float movementSpeed = 10.0f;
 	//float slowDown=0.8f;
 	float lookScale = 2.0f;
