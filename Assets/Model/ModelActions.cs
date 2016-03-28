@@ -358,9 +358,14 @@ public class ModelActions : MonoBehaviour {
 				x [j] += v [j] * dt;
 
 			}
-			//sight = new Vector3(GameObject.Find("Player").GetComponent<PlayerMovement>().cc.transform.position - bodyGos[0].transform.position);
+
+
 			sight = Camera.main.transform.position - x [0];
-			rv = Vector3.Dot (sight, v [0]);
+			rv = Vector3.Dot (sight/sight.magnitude, v [0]);
+
+
+
+
 			for (int j=0; j<nb; j++) {
 				bodyGos [j].GetComponent<bodyActions> ().Push (x [j]);
 			}
@@ -398,10 +403,9 @@ public class ModelActions : MonoBehaviour {
 			dt = threadDT;
 		else
 			dt = Time.fixedDeltaTime;
+		
 		GameObject.Find ("TimeDisplay").GetComponent<Text> ().text = string.Format ("Time = {0} dt = {1}", t, dt);
 
-		sight = Camera.main.transform.position - x [0];
-		rv = Vector3.Dot (sight, v [0]);
 		GameObject.Find ("rv").GetComponent<Text> ().text = string.Format ("Radial Velocity = {0}", rv );
 
 
